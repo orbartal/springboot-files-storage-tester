@@ -22,7 +22,7 @@ public class SingleFileApiTest {
 
 	@Test
 	public void testOneSmallFileUploadAndDownload() {
-		File inputFile = localFileService.writeNewSmallTextFile();
+		File inputFile = localFileService.writeNewSmallTextFile("test");
 		String uploadFileText = localFileService.readAllTextInFile(inputFile);
 		UUID uid = remoteFileService.uploadFile(inputFile);
 		String downloadFileText = remoteFileService.downloadFile(uid);

@@ -22,8 +22,8 @@ public class LocalFileService {
 		dirTemp = tempFileService.createTempDir(SMALL_FILE_DIR);
 	}
 
-	public File writeNewSmallTextFile() {
-		File out = tempFileService.createTempFile(dirTemp, "test");
+	public File writeNewSmallTextFile(String fileName) {
+		File out = tempFileService.createTempFile(dirTemp, fileName, ".txt");
 		textWriter.writeWordsIntoFile(out, KB1, WEEK_DAYS);
 		return out;
 	}

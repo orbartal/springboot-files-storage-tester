@@ -17,10 +17,10 @@ public class TempFileService {
 		}
 	}
 
-	public File createTempFile(File dir, String fileName) {
+	public File createTempFile(File dir, String fileName, String suffix) {
 		String osTmpDir = System.getProperty("java.io.tmpdir");
 		try {
-			Path temp = Files.createTempFile(dir.toPath(), fileName, ".txt");
+			Path temp = Files.createTempFile(dir.toPath(), fileName, suffix);
 			return temp.toFile();
 		} catch (IOException e) {
 			throw new RuntimeException("Fail to create new temp file: " + fileName + ", at dir = " + osTmpDir);
