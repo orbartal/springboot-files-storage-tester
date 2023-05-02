@@ -1,4 +1,4 @@
-package demo.springboot.files.storage.tester.helper.writer;
+package demo.springboot.files.storage.tester.files.helper.writer;
 
 import java.io.File;
 import java.util.List;

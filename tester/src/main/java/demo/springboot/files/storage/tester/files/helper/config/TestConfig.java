@@ -1,4 +1,4 @@
-package demo.springboot.files.storage.tester.helper.config;
+package demo.springboot.files.storage.tester.files.helper.config;
 
 import java.util.Arrays;
 import java.util.List;

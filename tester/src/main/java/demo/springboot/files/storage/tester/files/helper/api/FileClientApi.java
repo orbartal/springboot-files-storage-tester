@@ -1,9 +1,9 @@
-package demo.springboot.files.storage.tester.helper.api;
+package demo.springboot.files.storage.tester.files.helper.api;
 
 import java.io.File;
 
-import demo.springboot.files.storage.tester.helper.config.ConfigProvider;
-import demo.springboot.files.storage.tester.helper.config.TestConfig;
+import demo.springboot.files.storage.tester.files.helper.config.ConfigProvider;
+import demo.springboot.files.storage.tester.files.helper.config.TestConfig;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;

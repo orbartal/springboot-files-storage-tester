@@ -1,4 +1,4 @@
-package demo.springboot.files.storage.tester.helper.api;
+package demo.springboot.files.storage.tester.files.helper.api;
 
 import java.io.File;
 import java.util.Map;

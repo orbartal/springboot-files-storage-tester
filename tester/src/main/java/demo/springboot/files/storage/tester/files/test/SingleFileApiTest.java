@@ -1,14 +1,14 @@
 
-package demo.springboot.files.storage.tester.test.upload;
+package demo.springboot.files.storage.tester.files.test;
 
 import java.io.File;
 import java.util.UUID;
 
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
-import demo.springboot.files.storage.tester.helper.api.RemoteFileService;
-import demo.springboot.files.storage.tester.helper.writer.LocalFileService;
+import demo.springboot.files.storage.tester.files.helper.api.RemoteFileService;
+import demo.springboot.files.storage.tester.files.helper.writer.LocalFileService;
 
 public class SingleFileApiTest {
 

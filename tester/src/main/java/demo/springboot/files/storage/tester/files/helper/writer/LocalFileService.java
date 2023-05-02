@@ -1,11 +1,11 @@
-package demo.springboot.files.storage.tester.helper.writer;
+package demo.springboot.files.storage.tester.files.helper.writer;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
-import demo.springboot.files.storage.tester.helper.config.ConfigProvider;
+import demo.springboot.files.storage.tester.files.helper.config.ConfigProvider;
 
 public class LocalFileService {
 
