@@ -25,20 +25,13 @@ public class TestConfig {
 		return properties.get("target.api.download").toString();
 	}
 
-	public String getPathToSmallFile() {
-		return getPath("test1.words.s1");
+	public String getSmallTempFileDir() {
+		return properties.get("test1.dir.s1").toString();
 	}
 
 	public List<String> getFileTextWords() {
 		String text = properties.get("file.text.words").toString();
 		return Arrays.asList(text.split(",")).stream().collect(Collectors.toList());
 	}
-
-	private String getPath(String key) {
-		String filename = properties.get(key).toString();
-		return ConfigurationPath.getFilePath(filename);
-	}
-
-	
 
 }
