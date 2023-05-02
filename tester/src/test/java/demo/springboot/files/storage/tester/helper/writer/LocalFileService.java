@@ -16,8 +16,14 @@ public class LocalFileService {
 	private final TempFileService tempFileService = new TempFileService();
 	private final FileTextWriter textWriter = new FileTextWriter();
 
+	private File dirTemp;
+
+	public LocalFileService() {
+		dirTemp = tempFileService.createTempDir(SMALL_FILE_DIR);
+	}
+
 	public File writeNewSmallTextFile() {
-		File out = tempFileService.createTempFile(SMALL_FILE_DIR);
+		File out = tempFileService.createTempFile(dirTemp, "test");
 		textWriter.writeWordsIntoFile(out, KB1, WEEK_DAYS);
 		return out;
 	}
