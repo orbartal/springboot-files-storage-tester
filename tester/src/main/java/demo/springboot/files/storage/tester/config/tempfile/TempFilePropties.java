@@ -18,4 +18,9 @@ public class TempFilePropties {
 		return textWords;
 	}
 
+	@Override
+	public String toString() {
+		return "TempFilePropties [s1Dir=" + s1Dir + ", textWords=" + textWords + "]";
+	}
+
 }

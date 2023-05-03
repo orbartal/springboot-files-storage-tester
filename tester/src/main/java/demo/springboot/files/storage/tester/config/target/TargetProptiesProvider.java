@@ -30,7 +30,7 @@ public class TargetProptiesProvider {
 	@PostConstruct
 	private void init() {
 		targetPropties = new TargetPropties(targetBseUrl, targetApiHello, targetApiUpload, targetApiDownload);
-		logger.info("SpringProptiesUtil.targetPropties = " + targetPropties);
+		logger.info("TargetProptiesProvider.targetPropties = " + targetPropties);
 	}
 
 	public static TargetPropties getTargetPropties() {
