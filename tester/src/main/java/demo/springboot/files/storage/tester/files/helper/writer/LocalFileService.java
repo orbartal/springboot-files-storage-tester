@@ -3,28 +3,31 @@ package demo.springboot.files.storage.tester.files.helper.writer;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import demo.springboot.files.storage.tester.files.helper.config.ConfigProvider;
+import demo.springboot.files.storage.tester.config.tempfile.TempFilePropties;
+import demo.springboot.files.storage.tester.config.tempfile.TempFileProptiesProvider;
 
 public class LocalFileService {
 
 	private static final int KB1 = 1000;
-	private static final String SMALL_FILE_DIR = ConfigProvider.get().getSmallTempFileDir();
-	private static final List<String> WEEK_DAYS = ConfigProvider.get().getFileTextWords();
 
+	private final TempFilePropties tempFilePropties = TempFileProptiesProvider.getTempFilePropties();
 	private final TempFileService tempFileService = new TempFileService();
 	private final FileTextWriter textWriter = new FileTextWriter();
-
-	private File dirTemp;
+	private final File dirTemp;
 
 	public LocalFileService() {
-		dirTemp = tempFileService.createTempDir(SMALL_FILE_DIR);
+		dirTemp = tempFileService.createTempDir(tempFilePropties.getS1Dir());
 	}
 
 	public File writeNewSmallTextFile(String fileName) {
+		String words1 = tempFilePropties.getTextWords();
+		List<String> words2 = Arrays.asList(words1.split(",")).stream().collect(Collectors.toList());
 		File out = tempFileService.createTempFile(dirTemp, fileName, ".txt");
-		textWriter.writeWordsIntoFile(out, KB1, WEEK_DAYS);
+		textWriter.writeWordsIntoFile(out, KB1, words2);
 		return out;
 	}
 
