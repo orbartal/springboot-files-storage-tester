@@ -1,10 +1,9 @@
-package demo.springboot.files.storage.tester.startup.trigger;
+package demo.springboot.files.storage.tester.config.log;
 
 
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import demo.springboot.files.storage.tester.startup.util.EnvironmentPrinterUtil;
 import jakarta.annotation.PostConstruct;
 
 @Component

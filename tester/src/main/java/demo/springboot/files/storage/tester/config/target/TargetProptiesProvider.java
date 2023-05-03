@@ -1,4 +1,4 @@
-package demo.springboot.files.storage.tester.config;
+package demo.springboot.files.storage.tester.config.target;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

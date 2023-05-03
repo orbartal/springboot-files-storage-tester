@@ -1,11 +1,9 @@
-package demo.springboot.files.storage.tester.startup.util;
+package demo.springboot.files.storage.tester.config.log;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
-
-import demo.springboot.files.storage.tester.startup.trigger.EnvironmentPropertiesPrinter;
 
 public class EnvironmentPrinterUtil {
 
