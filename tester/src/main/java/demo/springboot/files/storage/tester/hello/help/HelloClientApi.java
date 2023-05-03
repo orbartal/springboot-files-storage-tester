@@ -14,7 +14,7 @@ public class HelloClientApi {
 	}
 
 	public Response getHello() {
-		String url = "/api/v1/hello";
+		String url = target.getTargetApiHello();
 		return RestAssured.given().when().get(url).andReturn();
 	}
 

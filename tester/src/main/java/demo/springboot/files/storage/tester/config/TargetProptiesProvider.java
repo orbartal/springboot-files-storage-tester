@@ -18,6 +18,9 @@ public class TargetProptiesProvider {
 	@Value("${target.base.url}")
 	private String targetBseUrl;
 
+	@Value("${target.api.hello}")
+	private String targetApiHello;
+
 	@Value("${target.api.upload}")
 	private String targetApiUpload;
 
@@ -26,7 +29,7 @@ public class TargetProptiesProvider {
 
 	@PostConstruct
 	private void init() {
-		targetPropties = new TargetPropties(targetBseUrl, targetApiUpload, targetApiDownload);
+		targetPropties = new TargetPropties(targetBseUrl, targetApiHello, targetApiUpload, targetApiDownload);
 		logger.info("SpringProptiesUtil.targetPropties = " + targetPropties);
 	}
 
