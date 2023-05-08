@@ -15,7 +15,7 @@ public class TestHelloController {
 	private TestHelloApp executer;
 
 	@PostMapping(path = "", produces = "application/json")
-	public TaskCreateResponseDto testOneFile() {
+	public TaskCreateResponseDto testGetHello() {
 		return executer.testGetHello();
 	}
 
