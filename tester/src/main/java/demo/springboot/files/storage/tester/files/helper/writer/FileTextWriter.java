@@ -6,10 +6,10 @@ import java.util.List;
 
 public class FileTextWriter {
 
-	public void writeWordsIntoFile(File file, int sizeInBytes, List<String> words) {
-		int numberOfRows = (sizeInBytes / 80)+1;
+	public void writeWordsIntoFile(File file, long sizeInBytes, List<String> words) {
+		long numberOfRows = (sizeInBytes / 80)+1;
 		try (MyPrintWriter writer = PrintWriterProvider.create(file, words)) {
-			for (int k = 0; k<numberOfRows; k++) {
+			for (long k = 0; k<numberOfRows; k++) {
 				writer.writeRandomLine(10);
 			}
 		}

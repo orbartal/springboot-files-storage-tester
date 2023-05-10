@@ -16,17 +16,17 @@ public class SingleFileApiTest implements TestFunction {
 
 	private final LocalFileService localFileService;
 	private final RemoteFileService remoteFileService;
-	private final int fileSize;
+	private final long fileSize;
 
 	public SingleFileApiTest(SizeEnum units, int amount) {
 		this.localFileService = new LocalFileService();
 		this.remoteFileService = new RemoteFileService();
-		this.fileSize = units.getValue() * amount;
+		this.fileSize = 1L * units.getValue() * amount;
 	}
 
 	@Test
 	public void test() {
-		File inputFile = localFileService.writeNewTextFile(fileSize, "test");
+		File inputFile = localFileService.writeNewTextFile(this.fileSize, "test");
 		UUID uid = remoteFileService.uploadFile(inputFile);
 		File outputFile = remoteFileService.downloadFile(uid);
 		long result = localFileService.compareTwoTextFiles(inputFile, outputFile);
