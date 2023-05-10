@@ -25,11 +25,6 @@ public class TestFilesController {
 		return executer.testApiWithSingle1MFile(size);
 	}
 
-	@PostMapping(path = "/valid/single/100/m", produces = "application/json")
-	public TaskCreateResponseDto testApiWithSingle100MFile() {
-		return executer.testApiWithSingle100MFile();
-	}
-
 	@PostMapping(path = "/valid/single/size/{size}/g", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1GFile(@PathVariable int size) {
 		return executer.testApiWithSingle1GMFile(size);

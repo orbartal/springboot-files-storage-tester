@@ -19,14 +19,6 @@ public class TestFilesApp {
 	@Autowired
 	private TaskAppWriter taskWriter;
 
-	public TaskCreateResponseDto testApiWithSingleFile() {
-		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.K1, 1);
-		TestBeanRunner runner = new TestBeanRunner(test);
-		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
-		RunnableTask task = new TestRunnableTask("SingleFileApiTest", worker);
-		return taskWriter.runTask(task);
-	}
-
 	public TaskCreateResponseDto testApiWithSingle1KFile(int size) {
 		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.K1, 1);
 		TestBeanRunner runner = new TestBeanRunner(test);
@@ -40,14 +32,6 @@ public class TestFilesApp {
 		TestBeanRunner runner = new TestBeanRunner(test);
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
 		RunnableTask task = new TestRunnableTask("Single1MFileApiTest", worker);
-		return taskWriter.runTask(task);
-	}
-
-	public TaskCreateResponseDto testApiWithSingle100MFile() {
-		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.M1, 100);
-		TestBeanRunner runner = new TestBeanRunner(test);
-		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
-		RunnableTask task = new TestRunnableTask("Single100MFileApiTest", worker);
 		return taskWriter.runTask(task);
 	}
 
