@@ -4,10 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import demo.springboot.files.storage.tester.files.helper.config.SizeEnum;
-import demo.springboot.files.storage.tester.files.test.Single100MFileApiTest;
-import demo.springboot.files.storage.tester.files.test.Single1GFileApiTest;
-import demo.springboot.files.storage.tester.files.test.Single1KFileApiTest;
-import demo.springboot.files.storage.tester.files.test.Single1MFileApiTest;
 import demo.springboot.files.storage.tester.files.test.SingleFileApiTest;
 import demo.springboot.files.storage.tester.task.api.model.TaskCreateResponseDto;
 import demo.springboot.files.storage.tester.task.app.TaskAppWriter;
@@ -32,25 +28,33 @@ public class TestFilesApp {
 	}
 
 	public TaskCreateResponseDto testApiWithSingle1KFile() {
-		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClassWithOrder(Single1KFileApiTest.class);
+		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.K1);
+		TestBeanRunner runner = new TestBeanRunner(test);
+		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
 		RunnableTask task = new TestRunnableTask("Single1KFileApiTest", worker);
 		return taskWriter.runTask(task);
 	}
 
 	public TaskCreateResponseDto testApiWithSingle1MFile() {
-		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClassWithOrder(Single1MFileApiTest.class);
+		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.M1);
+		TestBeanRunner runner = new TestBeanRunner(test);
+		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
 		RunnableTask task = new TestRunnableTask("Single1MFileApiTest", worker);
 		return taskWriter.runTask(task);
 	}
 
 	public TaskCreateResponseDto testApiWithSingle100MFile() {
-		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClassWithOrder(Single100MFileApiTest.class);
+		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.M100);
+		TestBeanRunner runner = new TestBeanRunner(test);
+		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
 		RunnableTask task = new TestRunnableTask("Single100MFileApiTest", worker);
 		return taskWriter.runTask(task);
 	}
 
 	public TaskCreateResponseDto testApiWithSingle1GMFile() {
-		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClassWithOrder(Single1GFileApiTest.class);
+		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.M100);
+		TestBeanRunner runner = new TestBeanRunner(test);
+		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
 		RunnableTask task = new TestRunnableTask("Single1GFileApiTest", worker);
 		return taskWriter.runTask(task);
 	}
