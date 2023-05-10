@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import demo.springboot.files.storage.tester.files.helper.config.SizeEnum;
 import demo.springboot.files.storage.tester.task.api.model.TaskCreateResponseDto;
 
 @RestController
@@ -17,17 +18,17 @@ public class TestFilesController {
 
 	@PostMapping(path = "/valid/single/size/{size}/k", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1KFile(@PathVariable int size) {
-		return executer.testApiWithSingle1KFile(size);
+		return executer.testApiWithSingleFile(SizeEnum.K1, size);
 	}
 
 	@PostMapping(path = "/valid/single/size/{size}/m", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1MFile(@PathVariable int size) {
-		return executer.testApiWithSingle1MFile(size);
+		return executer.testApiWithSingleFile(SizeEnum.M1, size);
 	}
 
 	@PostMapping(path = "/valid/single/size/{size}/g", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1GFile(@PathVariable int size) {
-		return executer.testApiWithSingle1GMFile(size);
+		return executer.testApiWithSingleFile(SizeEnum.G1, size);
 	}
 
 }
