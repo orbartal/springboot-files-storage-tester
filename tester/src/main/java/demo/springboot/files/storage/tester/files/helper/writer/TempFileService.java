@@ -10,8 +10,11 @@ public class TempFileService {
 	public File createTempDir(String dirName) {
 		String osTmpDir = System.getProperty("java.io.tmpdir");
 		try {
-			Path temp = Files.createTempDirectory(Path.of(osTmpDir), dirName);
-			return temp.toFile();
+			File target = Path.of(osTmpDir, dirName).toFile();
+			if (!target.exists()) {
+				Files.createDirectory(target.toPath());
+			}
+			return target;
 		} catch (IOException e) {
 			throw new RuntimeException("Fail to create new temp dir: " + dirName + ", at dir = " + osTmpDir);
 		}
