@@ -25,4 +25,9 @@ public class TestExampleController {
 		return executer.testCallOrder();
 	}
 
+	@PostMapping(path = "/example/test_service", produces = "application/json")
+	public TaskCreateResponseDto testService() {
+		return executer.testService();
+	}
+
 }

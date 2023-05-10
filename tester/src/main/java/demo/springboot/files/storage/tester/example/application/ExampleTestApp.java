@@ -5,9 +5,11 @@ import org.springframework.stereotype.Component;
 
 import demo.springboot.files.storage.tester.example.test.CallOrderTest;
 import demo.springboot.files.storage.tester.example.test.Test4Results;
+import demo.springboot.files.storage.tester.example.test.TestExampleService;
 import demo.springboot.files.storage.tester.task.api.model.TaskCreateResponseDto;
 import demo.springboot.files.storage.tester.task.app.TaskAppWriter;
 import demo.springboot.files.storage.tester.task.model.RunnableTask;
+import demo.springboot.files.storage.tester.test.runner.TestBeanRunner;
 import demo.springboot.files.storage.tester.testtask.runnable.TestRunnableTask;
 import demo.springboot.files.storage.tester.testtask.worker.TestTaskWorker;
 import demo.springboot.files.storage.tester.testtask.worker.TestTaskWorkerFactory;
@@ -27,6 +29,14 @@ public class ExampleTestApp {
 	public TaskCreateResponseDto testCallOrder() {
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClass(CallOrderTest.class);
 		RunnableTask task = new TestRunnableTask("testCallOrder", worker);
+		return taskWriter.runTask(task);
+	}
+
+	public TaskCreateResponseDto testService() {
+		TestExampleService service = new TestExampleService();
+		TestBeanRunner runner = new TestBeanRunner(service);
+		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
+		RunnableTask task = new TestRunnableTask("testExampleService", worker);
 		return taskWriter.runTask(task);
 	}
 
