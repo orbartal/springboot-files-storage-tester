@@ -18,17 +18,17 @@ public class TestFilesController {
 
 	@PostMapping(path = "/valid/single/size/{size}/k", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1KFile(@PathVariable int size) {
-		return executer.testApiWithSingleFile(SizeEnum.K1, size);
+		return executer.testApiWithSingleFile(SizeEnum.K, size);
 	}
 
 	@PostMapping(path = "/valid/single/size/{size}/m", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1MFile(@PathVariable int size) {
-		return executer.testApiWithSingleFile(SizeEnum.M1, size);
+		return executer.testApiWithSingleFile(SizeEnum.M, size);
 	}
 
 	@PostMapping(path = "/valid/single/size/{size}/g", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1GFile(@PathVariable int size) {
-		return executer.testApiWithSingleFile(SizeEnum.G1, size);
+		return executer.testApiWithSingleFile(SizeEnum.G, size);
 	}
 
 }
