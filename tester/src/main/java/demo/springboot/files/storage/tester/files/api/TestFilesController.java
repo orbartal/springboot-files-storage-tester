@@ -14,6 +14,11 @@ public class TestFilesController {
 	@Autowired
 	private TestFilesApp executer;
 
+	@PostMapping(path = "/valid/single/size", produces = "application/json")
+	public TaskCreateResponseDto testApiWithSingleFile() {
+		return executer.testApiWithSingleFile();
+	}
+
 	@PostMapping(path = "/valid/single/1k", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1KFile() {
 		return executer.testApiWithSingle1KFile();
