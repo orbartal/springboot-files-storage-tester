@@ -52,7 +52,7 @@ public class TestFilesApp {
 	}
 
 	public TaskCreateResponseDto testApiWithSingle1GMFile() {
-		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.M1, 100);
+		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.G1, 1);
 		TestBeanRunner runner = new TestBeanRunner(test);
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
 		RunnableTask task = new TestRunnableTask("Single1GFileApiTest", worker);
