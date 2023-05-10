@@ -15,8 +15,8 @@ public class TestFilesController {
 	private TestFilesApp executer;
 
 	@PostMapping(path = "/demo/crud/one/valid", produces = "application/json")
-	public TaskCreateResponseDto testOneFile() {
-		return executer.testCrudOneValid();
+	public TaskCreateResponseDto testApiWithSingle1KFile() {
+		return executer.testApiWithSingle1KFile();
 	}
 
 }

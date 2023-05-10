@@ -17,7 +17,7 @@ public class TestFilesApp {
 	@Autowired
 	private TaskAppWriter taskWriter;
 
-	public TaskCreateResponseDto testCrudOneValid() {
+	public TaskCreateResponseDto testApiWithSingle1KFile() {
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClassWithOrder(Single1KFileApiTest.class);
 		RunnableTask task = new TestRunnableTask("Single1KFileApiTest", worker);
 		return taskWriter.runTask(task);
