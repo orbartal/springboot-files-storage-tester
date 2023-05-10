@@ -18,10 +18,10 @@ public class SingleFileApiTest implements TestFunction {
 	private final RemoteFileService remoteFileService;
 	private final int fileSize;
 
-	public SingleFileApiTest(SizeEnum size) {
+	public SingleFileApiTest(SizeEnum units, int amount) {
 		this.localFileService = new LocalFileService();
 		this.remoteFileService = new RemoteFileService();
-		this.fileSize = size.getValue();
+		this.fileSize = units.getValue() * amount;
 	}
 
 	@Test
