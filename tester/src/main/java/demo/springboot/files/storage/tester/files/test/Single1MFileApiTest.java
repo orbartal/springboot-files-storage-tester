@@ -24,11 +24,11 @@ public class Single1MFileApiTest {
 	@Test
 	public void test() {
 		File inputFile = localFileService.writeNewTextFile(SizeEnum.M1, "test");
-		String uploadFileText = localFileService.readAllTextInFile(inputFile);
 		UUID uid = remoteFileService.uploadFile(inputFile);
 		File outputFile = remoteFileService.downloadFile(uid);
-		String downloadFileText = localFileService.readAllTextInFile(outputFile);
-		Assertions.assertEquals(uploadFileText, downloadFileText);
+		long result = localFileService.compareTwoTextFiles(inputFile, outputFile);
+		//Result is the index of first different bit. If non found should be -1.
+		Assertions.assertEquals(-1L, result); 
 	}
 
 }

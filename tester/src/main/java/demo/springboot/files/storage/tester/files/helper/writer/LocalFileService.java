@@ -53,4 +53,12 @@ public class LocalFileService {
 		}
 	}
 
+	public long compareTwoTextFiles(File file1, File file2) {
+		try {
+			return Files.mismatch(file1.toPath(), file2.toPath());
+		} catch (IOException e) {
+			throw new RuntimeException("Fail to compare two text files. file1 = " + file1 + ", file2 = " + file2, e);
+		}
+	}
+
 }
