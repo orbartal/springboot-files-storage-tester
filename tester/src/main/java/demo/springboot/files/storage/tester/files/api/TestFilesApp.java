@@ -3,6 +3,7 @@ package demo.springboot.files.storage.tester.files.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import demo.springboot.files.storage.tester.files.test.Single100MFileApiTest;
 import demo.springboot.files.storage.tester.files.test.Single1KFileApiTest;
 import demo.springboot.files.storage.tester.files.test.Single1MFileApiTest;
 import demo.springboot.files.storage.tester.task.api.model.TaskCreateResponseDto;
@@ -27,6 +28,12 @@ public class TestFilesApp {
 	public TaskCreateResponseDto testApiWithSingle1MFile() {
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClassWithOrder(Single1MFileApiTest.class);
 		RunnableTask task = new TestRunnableTask("Single1MFileApiTest", worker);
+		return taskWriter.runTask(task);
+	}
+
+	public TaskCreateResponseDto testApiWithSingle100MFile() {
+		TestTaskWorker worker = TestTaskWorkerFactory.fromTestClassWithOrder(Single100MFileApiTest.class);
+		RunnableTask task = new TestRunnableTask("Single100MFileApiTest", worker);
 		return taskWriter.runTask(task);
 	}
 

@@ -2,6 +2,7 @@ package demo.springboot.files.storage.tester.files.helper.config;
 
 public enum SizeEnum {
 
+	M100(100 * 1000 * 1000),
 	M1(1000 * 1000),
 	K1(1000);
 

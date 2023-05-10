@@ -18,10 +18,15 @@ public class TestFilesController {
 	public TaskCreateResponseDto testApiWithSingle1KFile() {
 		return executer.testApiWithSingle1KFile();
 	}
-	
+
 	@PostMapping(path = "/valid/single/1m", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle1MFile() {
 		return executer.testApiWithSingle1MFile();
+	}
+
+	@PostMapping(path = "/valid/single/100m", produces = "application/json")
+	public TaskCreateResponseDto testApiWithSingle100MFile() {
+		return executer.testApiWithSingle100MFile();
 	}
 
 }
