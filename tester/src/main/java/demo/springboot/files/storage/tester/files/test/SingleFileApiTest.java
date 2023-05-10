@@ -25,7 +25,8 @@ public class SingleFileApiTest {
 		File inputFile = localFileService.writeNewSmallTextFile("test");
 		String uploadFileText = localFileService.readAllTextInFile(inputFile);
 		UUID uid = remoteFileService.uploadFile(inputFile);
-		String downloadFileText = remoteFileService.downloadFile(uid);
+		File outputFile = remoteFileService.downloadFile(uid);
+		String downloadFileText = localFileService.readAllTextInFile(outputFile);
 		Assertions.assertEquals(uploadFileText, downloadFileText);
 	}
 

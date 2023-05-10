@@ -2,7 +2,9 @@ package demo.springboot.files.storage.tester.files.helper.writer;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +39,18 @@ public class LocalFileService {
 			return new String(uploadFileBytes);
 		} catch (IOException e) {
 			throw new RuntimeException("Fail to read text from file: " + input);
+		}
+	}
+
+	public File createTempFile(String fileName) {
+		return tempFileService.createTempFile(dirTemp, fileName, ".tmp");
+	}
+
+	public void writeInputStreamToFile(File output, InputStream inputStream) {
+		try {
+			Files.copy(inputStream, output.toPath(), StandardCopyOption.REPLACE_EXISTING);
+		} catch (IOException e) {
+			throw new RuntimeException("Fail to copy input stream into file: " + output, e);
 		}
 	}
 
