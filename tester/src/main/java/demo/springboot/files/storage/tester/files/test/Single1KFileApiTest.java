@@ -11,12 +11,12 @@ import demo.springboot.files.storage.tester.files.helper.api.RemoteFileService;
 import demo.springboot.files.storage.tester.files.helper.config.SizeEnum;
 import demo.springboot.files.storage.tester.files.helper.writer.LocalFileService;
 
-public class SingleFileApiTest {
+public class Single1KFileApiTest {
 
 	private final LocalFileService localFileService;
 	private final RemoteFileService remoteFileService;
 
-	public SingleFileApiTest() {
+	public Single1KFileApiTest() {
 		this.localFileService = new LocalFileService();
 		this.remoteFileService = new RemoteFileService();
 	}
