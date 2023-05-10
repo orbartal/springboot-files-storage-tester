@@ -11,10 +11,9 @@ import java.util.stream.Collectors;
 
 import demo.springboot.files.storage.tester.config.tempfile.TempFilePropties;
 import demo.springboot.files.storage.tester.config.tempfile.TempFileProptiesProvider;
+import demo.springboot.files.storage.tester.files.helper.config.SizeEnum;
 
 public class LocalFileService {
-
-	private static final int KB1 = 1000;
 
 	private final TempFilePropties tempFilePropties = TempFileProptiesProvider.getTempFilePropties();
 	private final TempFileService tempFileService = new TempFileService();
@@ -25,11 +24,11 @@ public class LocalFileService {
 		dirTemp = tempFileService.createTempDir(tempFilePropties.getS1Dir());
 	}
 
-	public File writeNewSmallTextFile(String fileName) {
+	public File writeNewSmallTextFile(SizeEnum size, String fileName) {
 		String words1 = tempFilePropties.getTextWords();
 		List<String> words2 = Arrays.asList(words1.split(",")).stream().collect(Collectors.toList());
 		File out = tempFileService.createTempFile(dirTemp, fileName, ".txt");
-		textWriter.writeWordsIntoFile(out, KB1, words2);
+		textWriter.writeWordsIntoFile(out, size.getValue(), words2);
 		return out;
 	}
 

@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
 import demo.springboot.files.storage.tester.files.helper.api.RemoteFileService;
+import demo.springboot.files.storage.tester.files.helper.config.SizeEnum;
 import demo.springboot.files.storage.tester.files.helper.writer.LocalFileService;
 
 public class SingleFileApiTest {
@@ -22,7 +23,7 @@ public class SingleFileApiTest {
 
 	@Test
 	public void testOneSmallFileUploadAndDownload() {
-		File inputFile = localFileService.writeNewSmallTextFile("test");
+		File inputFile = localFileService.writeNewSmallTextFile(SizeEnum.K1, "test");
 		String uploadFileText = localFileService.readAllTextInFile(inputFile);
 		UUID uid = remoteFileService.uploadFile(inputFile);
 		File outputFile = remoteFileService.downloadFile(uid);
