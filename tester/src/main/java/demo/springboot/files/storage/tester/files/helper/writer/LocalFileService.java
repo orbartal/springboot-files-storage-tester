@@ -24,7 +24,7 @@ public class LocalFileService {
 		dirTemp = tempFileService.createTempDir(tempFilePropties.getS1Dir());
 	}
 
-	public File writeNewSmallTextFile(SizeEnum size, String fileName) {
+	public File writeNewTextFile(SizeEnum size, String fileName) {
 		String words1 = tempFilePropties.getTextWords();
 		List<String> words2 = Arrays.asList(words1.split(",")).stream().collect(Collectors.toList());
 		File out = tempFileService.createTempFile(dirTemp, fileName, ".txt");
