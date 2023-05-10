@@ -1,6 +1,7 @@
 package demo.springboot.files.storage.tester.files.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,24 +15,24 @@ public class TestFilesController {
 	@Autowired
 	private TestFilesApp executer;
 
-	@PostMapping(path = "/valid/single/1k", produces = "application/json")
-	public TaskCreateResponseDto testApiWithSingle1KFile() {
-		return executer.testApiWithSingle1KFile();
+	@PostMapping(path = "/valid/single/size/{size}/k", produces = "application/json")
+	public TaskCreateResponseDto testApiWithSingle1KFile(@PathVariable int size) {
+		return executer.testApiWithSingle1KFile(size);
 	}
 
-	@PostMapping(path = "/valid/single/1m", produces = "application/json")
-	public TaskCreateResponseDto testApiWithSingle1MFile() {
-		return executer.testApiWithSingle1MFile();
+	@PostMapping(path = "/valid/single/size/{size}/m", produces = "application/json")
+	public TaskCreateResponseDto testApiWithSingle1MFile(@PathVariable int size) {
+		return executer.testApiWithSingle1MFile(size);
 	}
 
-	@PostMapping(path = "/valid/single/100m", produces = "application/json")
+	@PostMapping(path = "/valid/single/100/m", produces = "application/json")
 	public TaskCreateResponseDto testApiWithSingle100MFile() {
 		return executer.testApiWithSingle100MFile();
 	}
 
-	@PostMapping(path = "/valid/single/1g", produces = "application/json")
-	public TaskCreateResponseDto testApiWithSingle1GFile() {
-		return executer.testApiWithSingle1GMFile();
+	@PostMapping(path = "/valid/single/size/{size}/g", produces = "application/json")
+	public TaskCreateResponseDto testApiWithSingle1GFile(@PathVariable int size) {
+		return executer.testApiWithSingle1GMFile(size);
 	}
 
 }

@@ -19,7 +19,15 @@ public class TestFilesApp {
 	@Autowired
 	private TaskAppWriter taskWriter;
 
-	public TaskCreateResponseDto testApiWithSingle1KFile() {
+	public TaskCreateResponseDto testApiWithSingleFile() {
+		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.K1, 1);
+		TestBeanRunner runner = new TestBeanRunner(test);
+		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
+		RunnableTask task = new TestRunnableTask("SingleFileApiTest", worker);
+		return taskWriter.runTask(task);
+	}
+
+	public TaskCreateResponseDto testApiWithSingle1KFile(int size) {
 		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.K1, 1);
 		TestBeanRunner runner = new TestBeanRunner(test);
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
@@ -27,7 +35,7 @@ public class TestFilesApp {
 		return taskWriter.runTask(task);
 	}
 
-	public TaskCreateResponseDto testApiWithSingle1MFile() {
+	public TaskCreateResponseDto testApiWithSingle1MFile(int size) {
 		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.M1, 1);
 		TestBeanRunner runner = new TestBeanRunner(test);
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
@@ -43,8 +51,8 @@ public class TestFilesApp {
 		return taskWriter.runTask(task);
 	}
 
-	public TaskCreateResponseDto testApiWithSingle1GMFile() {
-		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.G1, 1);
+	public TaskCreateResponseDto testApiWithSingle1GMFile(int size) {
+		SingleFileApiTest test = new SingleFileApiTest(SizeEnum.G1, 100);
 		TestBeanRunner runner = new TestBeanRunner(test);
 		TestTaskWorker worker = TestTaskWorkerFactory.fromTestBeanRunner(runner);
 		RunnableTask task = new TestRunnableTask("Single1GFileApiTest", worker);
